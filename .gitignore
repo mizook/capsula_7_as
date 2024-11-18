@@ -1,0 +1,53 @@
+# ====== Git Ignore Template ======
+# Este archivo .gitignore está diseñado para proyectos que incluyen .NET
+# ===================================
+
+# ------------------------------
+# .NET Core / Visual Studio
+# ------------------------------
+# Build results
+bin/
+obj/
+obj/debug/
+out/
+
+bin
+obj
+bin
+
+consumerApi/bin
+consumerApi/obj
+consumerApi/obj/debug
+consumerApi/bin
+
+producerApi/bin
+producerApi/obj
+producerApi/obj/debug
+producerApi/bin
+
+# NuGet Packages
+*.nupkg
+# The packages folder can be ignored because of the package restore feature.
+**/packages/*
+
+# Microsoft Visual Studio
+.vs/
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Rider
+.idea/
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# Publish
+publish/
