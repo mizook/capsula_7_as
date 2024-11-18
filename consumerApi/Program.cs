@@ -13,6 +13,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddMassTransit(x =>
 {
     x.AddConsumer<TextMessageConsumer>();
+    x.AddConsumer<ChatMessageConsumer>();
 
     x.UsingRabbitMq((context, cfg) =>
     {
@@ -22,9 +23,14 @@ builder.Services.AddMassTransit(x =>
             h.Password("guest");
         });
 
-        cfg.ReceiveEndpoint("text-message-queue", e =>
+        // cfg.ReceiveEndpoint("text-message-queue", e =>
+        // {
+        //     e.ConfigureConsumer<TextMessageConsumer>(context);
+        // });
+
+        cfg.ReceiveEndpoint("chat-message-queue", e =>
         {
-            e.ConfigureConsumer<TextMessageConsumer>(context);
+            e.ConfigureConsumer<ChatMessageConsumer>(context);
         });
     });
 });
