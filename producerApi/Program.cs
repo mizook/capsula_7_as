@@ -18,9 +18,14 @@ builder.Services.AddMassTransit(x =>
             h.Password("guest");
         });
 
-        cfg.Send<TextMessage>(config =>
+        // cfg.Send<TextMessage>(config =>
+        // {
+        //     config.UseRoutingKeyFormatter(context => "text-message-queue");
+        // });
+
+        cfg.Send<ChatMessage>(config =>
         {
-            config.UseRoutingKeyFormatter(context => "text-message-queue");
+            config.UseRoutingKeyFormatter(context => "chat-message-queue");
         });
 
     });
